@@ -1,0 +1,41 @@
+﻿<Window x:Class="BeautySaloonViewClient.WindowProcedures"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySaloonViewClient"
+        Title="Процедуры" Height="450" Width="800" Loaded="WindowProcedures_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="buttonAdd" Content="Добавить" Click="buttonAdd_Click" Grid.Column="4" Grid.Row="0" />
+        <Button x:Name="buttonUpd" Content="Изменить" Click="buttonUpd_Click" Grid.Column="4" Grid.Row="1" />
+        <Button x:Name="buttonDel" Content="Удалить" Click="buttonDel_Click" Grid.Column="4" Grid.Row="2" />
+        <Button x:Name="buttonRef" Content="Обновить" Click="buttonRef_Click" Grid.Column="4" Grid.Row="3" />
+
+        <DataGrid x:Name="dataGridProcedures"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" 
+                  AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" ColumnWidth="*" IsReadOnly="True">
+        </DataGrid>
+        <Label x:Name="labelClient" HorizontalAlignment="Left" Height="26" Margin="62,10,0,0" VerticalAlignment="Top" Width="151"/>
+    </Grid>
+</Window>

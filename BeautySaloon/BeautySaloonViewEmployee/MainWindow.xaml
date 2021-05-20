@@ -1,0 +1,49 @@
+﻿<Window x:Class="BeautySaloonViewEmployee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Салон красоты" Height="450" Width="800" Loaded="MainWindow_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="btv" />
+        <ControlTemplate x:Key="VsMenuTop" TargetType="MenuItem">
+            <StackPanel TextBlock.FontSize="15px" Height="40">
+                <Label Content="{TemplateBinding Header}" Margin="5" Foreground="White" />
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver"  Value="True">
+                                <Setter Property="Background" Value="#106EBE" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+            </StackPanel>
+        </ControlTemplate>
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#A4B9CA" />
+            <Setter Property="Height" Value="40px" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Menu IsMainMenu="True">
+                <MenuItem x:Name="CosmeticMenuItem" Header="Косметика" Template="{StaticResource VsMenuTop}" Click="CosmeticMenuItem_Click"/>
+                <MenuItem x:Name="ReceiptMenuItem" Header="Чеки" Template="{StaticResource VsMenuTop}" Click="ReceiptMenuItem_Click"/>
+                <MenuItem x:Name="DistributionMenuItem" Header="Выдачи" Template="{StaticResource VsMenuTop}" Click="DistributionMenuItem_Click"/>
+                <MenuItem x:Name="PurchaseListMenuItem" Header="Список покупок" Template="{StaticResource VsMenuTop}" Click="PurchaseMenuItem_Click"/>
+                <MenuItem x:Name="ReportMenuItem" Header="Отчет по косметике" Template="{StaticResource VsMenuTop}" Click="ReportMenuItem_Click"/>
+                <MenuItem x:Name="StatisticMenuItem" Header="Статистика" Template="{StaticResource VsMenuTop}" Click="StatisticMenuItem_Click"/>
+            </Menu>
+        </StackPanel>
+        <Image Grid.Row="1" Grid.RowSpan="2" MaxHeight="220" MaxWidth="225" Source="logo.png"/>
+        <Label x:Name="lbl_Employee" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="White" Foreground="#003466" FontSize="15px"/>
+    </Grid>
+</Window>

@@ -1,0 +1,61 @@
+﻿<Window x:Class="BeautySaloonViewClient.WindowBindingReciept"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySaloonViewClient"
+        mc:Ignorable="d"
+        Title="Привязка к чеку" Height="300" Width="400" Loaded="WindowBindingReciept_Loaded">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ComboBox x:Name="ComboBoxPurchase"  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" MaxWidth="150" MaxHeight="25" Foreground="#003466" FontSize="15px">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Date}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxReceipt" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" MaxWidth="150" MaxHeight="25" Foreground="#003466" FontSize="15px">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Id}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Покупка" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Content="Чек" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button x:Name="buttonCancel" Content="Отмена" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Click="buttonCancel_Click"/>
+        <Button x:Name="buttonBinding" Content="Привязать" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Click="buttonBinding_Click"/>
+    </Grid>
+</Window>

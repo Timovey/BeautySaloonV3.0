@@ -1,0 +1,56 @@
+﻿<Window x:Class="BeautySaloonViewClient.WindowPurchases"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySaloonViewClient"
+        mc:Ignorable="d"
+        Title="Покупки" Height="450" Width="600" Loaded="WindowPurchases_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="BorderBrush" Value="#003466"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="buttonAdd" Content="Добавить" Grid.Row="1" Grid.Column="1" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonUpd" Content="Изменить" Grid.Row="2" Grid.Column="1" Click="buttonUpd_Click"/>
+        <Button x:Name="buttonDel" Content="Удалить" Grid.Row="3" Grid.Column="1" Click="buttonDel_Click"/>
+        <Button x:Name="buttonRef" Content="Обновить" Grid.Row="4" Grid.Column="1" Click="buttonRef_Click"/>
+        
+        <DataGrid x:Name="dataGridPurchases" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Margin="5"
+                  AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" ColumnWidth="*" IsReadOnly="True" />
+    </Grid>
+</Window>

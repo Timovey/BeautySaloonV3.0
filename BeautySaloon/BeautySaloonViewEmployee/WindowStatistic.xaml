@@ -1,0 +1,81 @@
+﻿<Window x:Class="BeautySaloonViewEmployee.WindowStatistic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Статистика" Height="650" Width="1000" Loaded="WindowStatistic_Loaded">
+    <Window.Resources>
+        <Style TargetType="DatePicker">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DatePicker x:Name="datePickerFrom"  Grid.Row="0" Grid.Column="0" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        <DatePicker x:Name="datePickerTo" Grid.Row="0" Grid.Column="1" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        <Button x:Name="buttonMake" Content="Сформировать" Grid.Row="0" Grid.Column="2" Click="buttonMake_Click"/>
+        <DVC:Chart Name="mcChart" Background="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            <DVC:Chart.Series>
+                <DVC:ColumnSeries Title="Выдачи" IndependentValueBinding="{Binding Path=Item1}" DependentValueBinding="{Binding Path=Item2}"  >
+                </DVC:ColumnSeries>
+                <DVC:ColumnSeries Title="Чеки" IndependentValueBinding="{Binding Path=Item1}" DependentValueBinding="{Binding Path=Item2}"  >
+                </DVC:ColumnSeries>
+            </DVC:Chart.Series>
+            <DVC:Chart.Axes>
+                <DVC:LinearAxis Orientation="Y"
+                        Title="Количество косметики"
+                        Minimum="0"
+                        Interval="1"
+                        Maximum="10"
+                        Location="Right"
+                        ShowGridLines="True" />
+            </DVC:Chart.Axes>
+        </DVC:Chart>
+        <Label x:Name="lbl_Employee" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Background="White" Foreground="#003466" FontSize="15px" Margin="7"/>
+        <DVC:Chart Name="mcChartAll" Background="White" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            <DVC:Chart.Series>
+                <DVC:ColumnSeries Title="Выдачи" IndependentValueBinding="{Binding Path=Item1}" DependentValueBinding="{Binding Path=Item2}"  >
+                </DVC:ColumnSeries>
+                <DVC:ColumnSeries Title="Чеки" IndependentValueBinding="{Binding Path=Item1}" DependentValueBinding="{Binding Path=Item2}"  >
+                </DVC:ColumnSeries>
+            </DVC:Chart.Series>
+            <DVC:Chart.Axes>
+                <DVC:LinearAxis Orientation="Y"
+                        Title="Количество косметики"
+                        Minimum="0"
+                        Interval="1"
+                        Maximum="10"
+                        Location="Right"
+                        ShowGridLines="True" />
+            </DVC:Chart.Axes>
+        </DVC:Chart>
+        <Label x:Name="lbl_All" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Background="White" Foreground="#003466" FontSize="15px" Content="Косметика всех сотрудников" Margin="7"/>
+    </Grid>
+</Window>

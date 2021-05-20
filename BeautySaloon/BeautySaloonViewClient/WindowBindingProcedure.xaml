@@ -1,0 +1,54 @@
+﻿<Window x:Class="BeautySaloonViewClient.WindowBindingProcedure"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySaloonViewClient"
+        mc:Ignorable="d"
+        Title="Привязка процедуры" Height="300" Width="300" Loaded="WindowBindingProcedure_Loaded">
+    <Window.Resources>
+        
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="#003466"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="25"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Процедура"  Grid.Row="0" Grid.Column="0"/>
+        <ComboBox x:Name="ComboBoxProcedures" Grid.Row="0" Grid.Column="1" SelectedIndex="0" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding ProcedureName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="ButtonSave" Content="Сохранить" Grid.Row="1" Grid.Column="0" Click="ButtonSave_Click"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" Grid.Row="1" Grid.Column="1" Click="ButtonCancel_Click"/>
+
+    </Grid>
+</Window>

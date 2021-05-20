@@ -1,0 +1,32 @@
+﻿<Window x:Class="BeautySaloonViewEmployee.WindowInital"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Салон красоты" Height="400" Width="400">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="120"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Background" Value="#A4B9CA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="buttonAuthorization" Content="Авторизация" Grid.Row="2" Grid.Column="0" Click="buttonAuthorization_Click"/>
+        <Button x:Name="buttonRegister" Content="Регистрация" Grid.Row="2" Grid.Column="1" Click="buttonRegister_Click"/>
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"  MaxHeight="220" MaxWidth="225" Source="logo.png"/>
+    </Grid>
+</Window>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="BeautySaloonViewClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySaloonViewClient"
+        Title="Салон красоты" MinHeight="250" Height="450" MinWidth="800" Width="900" Loaded="MainWindow_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="btv" />
+        <ControlTemplate x:Key="VsMenuTop" TargetType="MenuItem">
+            <StackPanel TextBlock.FontSize="15px" Height="40">
+                <Label Content="{TemplateBinding Header}" Margin="5" Foreground="White" />
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver"  Value="True">
+                                <Setter Property="Background" Value="#106EBE" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+            </StackPanel>
+        </ControlTemplate>
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#A4B9CA" />
+            <Setter Property="Height" Value="40px" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <Menu IsMainMenu="True">
+                <MenuItem x:Name="MenuItemProcedure" Header="Процедура" Template="{StaticResource VsMenuTop}" Click="MenuItemProcedure_Click"></MenuItem>
+                <MenuItem x:Name="MenuItemVisit" Header="Посещение" Template="{StaticResource VsMenuTop}" Click="MenuItemVisit_Click"></MenuItem>
+                <MenuItem x:Name="MenuItemPurchase" Header="Покупка" Template="{StaticResource VsMenuTop}" Click="MenuItemPurchase_Click"></MenuItem>
+                <MenuItem x:Name="MenuItemBindingReceipt" Header="Привязать к чеку" Template="{StaticResource VsMenuTop}" Click="MenuItemBindingReceipt_Click"></MenuItem>
+                <MenuItem x:Name="MenuItemGetList" Header="Получить список выдач" Template="{StaticResource VsMenuTop}" Click="MenuItemGetList_Click"></MenuItem>
+                <MenuItem x:Name="MenuItemGetReport" Header="Отчет по процедурам" Template="{StaticResource VsMenuTop}" Click="MenuItemGetReport_Click"></MenuItem>
+            </Menu>
+        </WrapPanel>
+        <Image Grid.Row="1" Grid.RowSpan="2" MaxHeight="220" MaxWidth="225" Source="logo.png"/>
+
+        <Label x:Name="labelClient" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="White" Foreground="#003466" FontSize="15px"/>
+
+    </Grid>
+</Window>
